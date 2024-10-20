@@ -13,6 +13,7 @@ int main(void) {
     struct dirent *d;
 
     dp=opendir(".");
+    
     d=readdir(dp);
     while(d!=NULL) {
         printf("%ld : %s\n", d->d_ino, d->d_name);
