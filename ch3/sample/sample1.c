@@ -9,10 +9,11 @@
 #include <ftw.h>
 
 int main(void) {
-    char str1[50], str2[50];
-    scanf("%s %s", str1, str2);
+    struct stat buf;
 
-    link(str1, str2);
+    stat("p1.c", &buf);
+    printf("%o, %ld\n", buf.st_mode&0777, buf.st_size);
+    printf("%s", ctime(&buf.st_mtime));
 
     return 0;
 }
