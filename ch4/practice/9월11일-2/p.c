@@ -13,7 +13,7 @@ int main(void){
     int i, fd;
 
     //1-(a)
-    fd = open("data1", O_RDWR | O_CREAT, 777);
+    fd = open("data1", O_RDWR | O_CREAT, 0600);
     for (i=0;i<10;i++){
         write(fd, &ch, 1);
     }
