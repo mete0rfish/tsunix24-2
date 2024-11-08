@@ -21,6 +21,11 @@ void do_child(int i){
     printf("%d-th child is created...\n", i);
     pause();
 
+    pid = getpid();
+    for(i=0;i<3;i++) {
+        printf("child %d\n", pid);
+    }
+
     exit(i);
 }
 int main(void) {
@@ -34,8 +39,8 @@ int main(void) {
     }
 
     for(i=0;i<3;i++) {
-        kill(pid[i], SIGUSR1);
         sleep(1);
+        kill(pid[i], SIGUSR1);
     }
 
     for (i=0;i<3;i++){
