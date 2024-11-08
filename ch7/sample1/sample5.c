@@ -22,13 +22,13 @@ int main(void) {
             exit(1);
             break;
         case 0:
-            printf("child before read: %ld\n", lseek(fd, (off_t)0, SEEK_CUR));
+            printf("child before read: %ld\n", lseek(fd, 0, SEEK_CUR));
             read(fd, buf, 10);
-            printf("child after read: %ld\n", lseek(fd, (off_t)0, SEEK_CUR));
+            printf("child after read: %ld\n", lseek(fd, 0, SEEK_CUR));
             break;
         default:
             wait((int*)0);
-            printf("parent after wait: %ld\n", lseek(fd, (off_t)0, SEEK_CUR));
+            printf("parent after wait: %ld\n", lseek(fd, 0, SEEK_CUR));
     }
     return 0;
 }

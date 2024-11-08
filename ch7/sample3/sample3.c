@@ -30,7 +30,7 @@ int main(void) {
     }
 
     while(1) {
-        n=waitpid(pid, &status, 0);
+        n=waitpid(pid, &status, WNOHANG);
         if(n>0) {
             if(WIFEXITED(status)) {
                 printf("%ld ... %d\n", n, WEXITSTATUS(status));
