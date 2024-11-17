@@ -41,11 +41,11 @@ void parent(int p[3][2]){
         close(p[i][1]);
     FD_ZERO(&master);
     for (i=0; i<3; i++)
-        FD_SET(p[i][0], &master);
+        FD_SET(p[i][0], &master); // Master {p[0][0], p[1][0], p[2][0]} 모든 읽기
     t.tv_sec=5;
     while (set=master, select(p[2][0]+1, &set, NULL, NULL, &t) > 0) {
         for (i=0; i<3; i++){
-            if (FD_ISSET(p[i][0], &set)){
+            if (FD_ISSET(p[i][0], &set)){// set 집합에 p[i][0]이 포함되어 있는지?
                 if ((n=read(p[i][0], buf, MSGSIZE)) >0)
                     printf("MSG from %d=%s\n", i, buf);
                 else if(n==0) // writer가 없으면 read 시, 0 반환 -> select는 0이더라도 있다고 판단

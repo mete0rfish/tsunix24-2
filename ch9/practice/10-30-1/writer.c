@@ -16,7 +16,7 @@ int main() {
     int *addr;
 
     fd=open("temp", O_RDONLY|O_CREAT, 0600);
-    addr = mmap(NULL, 512, PROT_READ|PROT_WRITE, MAP_SHARED, fd, 0);
+    addr = mmap(NULL, 512, PROT_READ, MAP_SHARED, fd, 0);
 
     sleep(5);
     for(i=0;i<5;i++) {
