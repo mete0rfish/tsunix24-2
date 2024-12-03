@@ -25,9 +25,9 @@ int main(void) {
     sigaddset(&mask, SIGINT);
 
     for(i=0;i<5;i++){
-        sigprocmask(SIG_SETMASK, &mask, NULL);
+        sigprocmask(SIG_SETMASK, &mask, NULL); // 입력 받는 동안 블로킹됨
         scanf("%d", &num[i]);
-        sigprocmask(SIG_UNBLOCK, &mask, NULL);
+        sigprocmask(SIG_UNBLOCK, &mask, NULL); // 블로킹 푸는 순간 catchint 실행 됨
         sum += num[i];
         for(j=0;j<=i;j++){
             printf("... %d\n", num[j]);

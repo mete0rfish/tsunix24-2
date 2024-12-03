@@ -20,7 +20,7 @@ int main(void) {
     act.sa_handler=catchint;
     sigaction(SIGINT, &act, NULL);
 
-    n=pause();
+    n=pause(); // 아무 시그널이나 대기
     for(i=0;i<5;i++)
         printf("%d...%d\n",i,n);
 
